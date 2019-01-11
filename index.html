@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <title>pixi H5 demo</title>
+    <link type="text/css" rel="stylesheet" href="css/index.css"/>
+    <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'onorientationchange' in window ? 'onorientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 640) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<!--背景音乐-->
+<audio id="myMusic"
+       src="http://1251453141.vod2.myqcloud.com/94235cfavodgzp1251453141/77acf6904564972818614158345/Q0A9lezMIBwA.mp3"
+       loop></audio>
+
+<div id="pixiStage">
+</div>
+
+<!--视频部分-->
+<div class="videoBox" view-mode="v" view-rotation="auto" view-scale="noborder" view-width="100%" view-height="100%"
+     view-align="">
+    <video id="video" webkit-playsinline="true" x-webkit-airplay="true" playsinline="true" x5-video-player-type="h5"
+           x5-video-player-fullscreen="true" height="1338" width="750" max-width="" preload="auto"
+           poster="images/one.jpg"
+           src="http://1251453141.vod2.myqcloud.com/94235cfavodgzp1251453141/fb8155cc4564972818650416317/zq5Bq0A7OQQA.mp4">
+    </video>
+</div>
+
+<div id="Rotation"></div>
+</body>
+</html>
